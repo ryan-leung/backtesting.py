@@ -1063,13 +1063,13 @@ class Backtest:
 
         if len(data) == 0:
             raise ValueError('OHLC `data` is empty')
-        if len(data.columns.intersection({'Open', 'High', 'Low', 'Close', 'Volume'})) != 5:
-            raise ValueError("`data` must be a pandas.DataFrame with columns "
-                             "'Open', 'High', 'Low', 'Close', and (optionally) 'Volume'")
-        if data[['Open', 'High', 'Low', 'Close']].isnull().values.any():
-            raise ValueError('Some OHLC values are missing (NaN). '
-                             'Please strip those lines with `df.dropna()` or '
-                             'fill them in with `df.interpolate()` or whatever.')
+        #if len(data.columns.intersection({'Open', 'High', 'Low', 'Close', 'Volume'})) != 5:
+        #    raise ValueError("`data` must be a pandas.DataFrame with columns "
+        #                     "'Open', 'High', 'Low', 'Close', and (optionally) 'Volume'")
+        #if data[['Open', 'High', 'Low', 'Close']].isnull().values.any():
+        #    raise ValueError('Some OHLC values are missing (NaN). '
+        #                     'Please strip those lines with `df.dropna()` or '
+        #                     'fill them in with `df.interpolate()` or whatever.')
         if np.any(data['Close'] > cash):
             warnings.warn('Some prices are larger than initial cash value. Note that fractional '
                           'trading is not supported. If you want to trade Bitcoin, '
